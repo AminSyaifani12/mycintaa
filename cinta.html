@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cinta.css">
+    <link rel="icon" type="image/x-icon" href="https://malasid.github.io/favicon.png">
+    <title>Pantun Romantis Buat Cantikku CINTA</title>
+</head>
+<body>
+    <audio src="https://feeldreams.github.io/angelbabypart2.mp3" id="linkmp3" class="sembunyi"></audio>
+    
+    <div id="bodyblur">
+        <img src="https://feeldreams.github.io/pics/awan1.jpg" id="wallpaper" alt="Wallpaper">
+    </div>
+
+    <div id="Content">
+        <div id="ftAwal">
+            <img src="https://feeldreams.github.io/pandaputih.gif" id="ftoAwal" alt="Pembuka">
+        </div>
+
+        <div id="loveIn">
+            <label class='lovein' onclick="loveClicked()">❤️</label>
+        </div>
+        <p id="ket">Sentuh LOVE CINTAKU</p>
+
+        <div class="kumpulanstiker">
+            <img src="https://feeldreams.github.io/bunga.gif" class="fotostiker" alt="Stiker Bunga">
+            <img src="https://feeldreams.github.io/emawh.gif" class="fotostiker" alt="Stiker Emo">
+            <img src="https://feeldreams.github.io/pandakuning.gif" class="fotostiker" alt="Stiker Panda Kuning">
+            <img src="https://feeldreams.github.io/pusn.gif" class="fotostiker" alt="Stiker Pusn">
+            <img src="https://feeldreams.github.io/gumush.gif" class="fotostiker" alt="Stiker Gumush">
+        </div>
+
+        <div id='pergeseran'>
+            <p><b><span>Hai CINTA,<br>aku ada pantun buat kamu nih cantik</span></b></p>
+            <div id="pantunContainer">
+                <p class="pantun"><b><span>Ikan hiu bawa koper</span></b></p>
+                <p class="pantun"><b><span>I love u forever <3333</span></b></p>
+                <p class="pantun"><b><span>Sate² apa yang bikin aku bahagia?</span></b></p>
+                <p class="pantun"><b><span>Saterusnya sama kamu<br>😍😆🥰🤭🤣</span></b></p>
+                <p class="pantun"><b><span id="iniakhir">Terakhir nihh ><</span></b></p>
+            </div>
+        </div>
+
+        <p id="ketgeser" onclick="shiftPantun()">Klik untuk Geser!</p>
+
+        <blockquote id='bq'>
+            <p id="kalimat"></p>
+            <p id="pesanAkhir" class="gaya4"></p>
+        </blockquote>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script src="https://kit.fontawesome.com/4f3ce16e3e.js" crossorigin="anonymous"></script>
+    <script>
+        function loveClicked() {
+            Swal.fire({
+                title: 'Cinta!',
+                text: 'Kamu telah menyentuh love!',
+                icon: 'success',
+                confirmButtonText: 'Terima kasih!'
+            });
+            const heart = document.createElement("div");
+            heart.className = "fas fa-heart";
+            heart.style.left = (Math.random() * 90) + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        function shiftPantun() {
+            const pantunContainer = document.getElementById("pantunContainer");
+            const firstPantun = pantunContainer.firstElementChild;
+            pantunContainer.appendChild(firstPantun);
+            pantunContainer.style.transition = "transform 0.5s ease";
+            pantunContainer.style.transform = "translateY(-50px)";
+            setTimeout(() => {
+                pantunContainer.style.transform = "translateY(0)";
+            }, 50);
+        }
+
+        setInterval(() => {
+            const heartArr = document.querySelectorAll(".fa-heart");
+            if (heartArr.length > 100) {
+                heartArr[0].remove();
+            }
+        }, 100);
+    </script>
+</body>
+</html>
